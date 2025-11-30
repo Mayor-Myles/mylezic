@@ -23,7 +23,7 @@ export default function TopNav() {
       py={2}
       boxShadow="sm"
       borderRadius="md"
-      ww="100%"
+      w=""
     >
       {/* Left: QR Scanner */}
       <GridItem>
