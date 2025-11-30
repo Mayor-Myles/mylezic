@@ -38,7 +38,7 @@ const TopNav = () => {
         <Button 
   variant="outline" 
   fontWeight="medium" 
-  color="green"
+  color="browm"
   leftIcon={<Icon as={CiGift} boxSize={5} />}
   justifyContent="center"
   alignItems="center"
@@ -74,7 +74,7 @@ const TopNav = () => {
           py={6}
           borderRadius="md"
           borderColor="gray.300"
-          color="gray.700"
+          
         >
           Buy Data
         </Button>
@@ -86,10 +86,38 @@ const TopNav = () => {
           py={6}
           borderRadius="md"
           borderColor="gray.300"
-          color="gray.700"
+          
         >
           Buy Airtime
         </Button>
+
+<Button
+          leftIcon={<Icon as={FiPhoneCall} boxSize={5} />}
+          variant="outline"
+          width="full"
+          justifyContent="flex-start"
+          py={6}
+          borderRadius="md"
+          borderColor="gray.300"
+          
+        >
+          Bulk SMS
+        </Button>
+
+        <Button
+          leftIcon={<Icon as={FiPhoneCall} boxSize={5} />}
+          variant="outline"
+          width="full"
+          justifyContent="flex-start"
+          py={6}
+          borderRadius="md"
+          borderColor="gray.300"
+          
+        >
+          Fashion
+        </Button>
+
+        
       </HStack>
         <Button
           leftIcon={<Icon as={FiPlus} boxSize={5} />}
