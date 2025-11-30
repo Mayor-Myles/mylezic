@@ -12,11 +12,11 @@ import {
 import { FiCamera, FiGift, FiBell } from 'react-icons/fi';
 
 export default function TopNav() {
-  const iconSize = useBreakpointValue({ base: 'md', md: 'lg' });
+  const iconSize = useBreakpointValue({ base: '2em', md: 'lg' });
 
   return (
     <Grid
-      templateColumns="repeat(4, 1fr)"
+      templateColumns="repeat(3, 1fr)"
       alignItems="center"
       bg="brown.50"
       px={4}
