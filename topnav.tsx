@@ -2,139 +2,229 @@ import React from 'react';
 import {
   Box,
   Flex,
+  Avatar,
   Text,
   IconButton,
-  Button,
-  VStack,
+  Badge,
   HStack,
-  Icon,
-  Heading
+  useColorModeValue,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  useDisclosure,
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  VStack,
+  Spacer,
 } from '@chakra-ui/react';
-import { FiLock, FiBell, FiWifi, FiPhoneCall, FiPlus } from 'react-icons/fi';
-import { TbScan } from "react-icons/tb";
-import { CiGift } from "react-icons/ci";
-
+import {
+  BellIcon,
+  ChatIcon,
+  SettingsIcon,
+  LogoutIcon,
+  ViewIcon,
+  HamburgerIcon,
+} from '@chakra-ui/icons';
 
 const TopNav = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const bg = useColorModeValue('white', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
+  const textColor = useColorModeValue('gray.700', 'gray.200');
+  const subTextColor = useColorModeValue('gray.500', 'gray.400');
+
+  // Mock notification counts
+  const messageCount = 3;
+  const notificationCount = 5;
+
   return (
-    <Box 
-      p={4} 
-      bg="#EADDCA" 
-      borderRadius="lg" 
-      boxShadow="sm" 
-      maxW="md" 
-      mx="auto"
-      fontFamily="body"
-    >
-      {/* Navigation Bar */}
-      <Flex justify="space-between" align="center" mb={8}>
-        <IconButton
-          icon={<TbScan />}
-          variant="ghost"
-          aria-label="Scan"
-          fontSize="30px"
-          color="gray.700"
-        />
-        <Button 
-  variant="outline" 
-  fontWeight="medium" 
-  color="browm"
-  leftIcon={<Icon as={CiGift} boxSize={5} />}
-  justifyContent="center"
-  alignItems="center"
->
-  Reward
-</Button>
-        <IconButton
-          icon={<FiBell />}
-          variant="ghost"
-          aria-label="Notifications"
-          fontSize="30px"
-          color="gray.700"
-        />
-      </Flex>
+    <>
+      <Box
+        bg={bg}
+        borderBottom="1px"
+        borderColor={borderColor}
+        px={{ base: 4, md: 6 }}
+        py={3}
+        position="sticky"
+        top={0}
+        zIndex={1000}
+        boxShadow="sm"
+      >
+        <Flex align="center" justify="space-between">
+          {/* Profile Section */}
+          <HStack spacing={3}>
+            <Avatar
+              name="Olaoluwa Abijo"
+              src="https://picsum.photos/seed/olaoluwa/100/100.jpg"
+              size="md"
+              border="2px solid"
+              borderColor="blue.500"
+            />
+            <Box display={{ base: 'none', md: 'block' }}>
+              <Text fontSize="sm" color={subTextColor}>
+                Welcome.
+              </Text>
+              <Text fontSize="lg" fontWeight="600" color={textColor}>
+                Olaoluwa Abijo
+              </Text>
+            </Box>
+          </HStack>
 
-      {/* Balance Section */}
-      <VStack spacing={2} mb={10} align="center">
-        <Text fontSize="md" color="gray.600">
-          Available Balance
-        </Text>
-        <Text fontSize="3xl" fontWeight="bold" color="gray.800">
-          N 11,3466
-        </Text>
-      </VStack>
+          {/* Desktop Navigation Icons */}
+          <HStack spacing={4}>
+            {/* Messages Icon */}
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={<ChatIcon boxSize={5} />}
+                variant="ghost"
+                color={textColor}
+                position="relative"
+                aria-label="Messages"
+                display={{ base: 'none', md: 'flex' }}
+              />
+              <Badge
+                position="absolute"
+                top="-1"
+                right="-1"
+                bg="red.500"
+                color="white"
+                borderRadius="full"
+                boxSize="20px"
+                fontSize="xs"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                {messageCount}
+              </Badge>
+              <MenuList>
+                <MenuItem icon={<ChatIcon />}>New message from Sarah</MenuItem>
+                <MenuItem icon={<ChatIcon />}>Team chat update</MenuItem>
+                <MenuItem icon={<ChatIcon />}>Project discussion</MenuItem>
+                <MenuDivider />
+                <MenuItem icon={<ViewIcon />}>View all messages</MenuItem>
+              </MenuList>
+            </Menu>
 
-      {/* Function Buttons */}
-      <HStack spacing={4}>
-        <Button
-          leftIcon={<Icon as={FiWifi} boxSize={5} />}
-          variant="outline"
-          width="full"
-          justifyContent="flex-start"
-          py={6}
-          borderRadius="md"
-          borderColor="gray.300"
-          
-        >
-          Buy Data
-        </Button>
-        <Button
-          leftIcon={<Icon as={FiPhoneCall} boxSize={5} />}
-          variant="outline"
-          width="full"
-          justifyContent="flex-start"
-          py={6}
-          borderRadius="md"
-          borderColor="gray.300"
-          
-        >
-          Buy Airtime
-        </Button>
+            {/* Notifications Icon */}
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={<BellIcon boxSize={5} />}
+                variant="ghost"
+                color={textColor}
+                position="relative"
+                aria-label="Notifications"
+                display={{ base: 'none', md: 'flex' }}
+              />
+              <Badge
+                position="absolute"
+                top="-1"
+                right="-1"
+                bg="red.500"
+                color="white"
+                borderRadius="full"
+                boxSize="20px"
+                fontSize="xs"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                {notificationCount}
+              </Badge>
+              <MenuList>
+                <MenuItem>New follower request</MenuItem>
+                <MenuItem>Your post was liked</MenuItem>
+                <MenuItem>Comment on your photo</MenuItem>
+                <MenuItem>Profile view notification</MenuItem>
+                <MenuDivider />
+                <MenuItem icon={<ViewIcon />}>View all notifications</MenuItem>
+              </MenuList>
+            </Menu>
 
-<Button
-          leftIcon={<Icon as={FiPhoneCall} boxSize={5} />}
-          variant="outline"
-          width="full"
-          justifyContent="flex-start"
-          py={6}
-          borderRadius="md"
-          borderColor="gray.300"
-          
-        >
-          Bulk SMS
-        </Button>
+            {/* Profile Menu */}
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={<Avatar name="Olaoluwa Abijo" size="sm" />}
+                variant="ghost"
+                aria-label="Profile menu"
+              />
+              <MenuList>
+                <MenuItem icon={<ViewIcon />}>View Profile</MenuItem>
+                <MenuItem icon={<SettingsIcon />}>Settings</MenuItem>
+                <MenuDivider />
+                <MenuItem icon={<LogoutIcon />}>Logout</MenuItem>
+              </MenuList>
+            </Menu>
 
-        <Button
-          leftIcon={<Icon as={FiPhoneCall} boxSize={5} />}
-          variant="outline"
-          width="full"
-          justifyContent="flex-start"
-          py={6}
-          borderRadius="md"
-          borderColor="gray.300"
-          
-        >
-          Fashion
-        </Button>
+            {/* Mobile Menu Button */}
+            <IconButton
+              display={{ base: 'flex', md: 'none' }}
+              icon={<HamburgerIcon />}
+              variant="ghost"
+              onClick={onOpen}
+              aria-label="Open menu"
+            />
+          </HStack>
+        </Flex>
+      </Box>
 
-        
-      </HStack>
-        <Button
-          leftIcon={<Icon as={FiPlus} boxSize={5} />}
-          bg="brown"
-          color="white"
-          width="full"
-          justifyContent="center"
-          py={6}
-          borderRadius="md"
-          m="2"
-          _hover={{ bg: "blue.700" }}
-        >
-          Add Money
-        </Button>
-      
-    </Box>
+      {/* Mobile Drawer */}
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>
+            <VStack align="start" spacing={1}>
+              <Text fontSize="sm" color={subTextColor}>
+                Welcome.
+              </Text>
+              <Text fontSize="lg" fontWeight="600">
+                Olaoluwa Abijo
+              </Text>
+            </VStack>
+          </DrawerHeader>
+
+          <DrawerBody>
+            <VStack spacing={4} align="stretch">
+              <Box>
+                <Text fontWeight="600" mb={2} color={textColor}>
+                  Messages
+                </Text>
+                <Badge bg="red.500" color="white" borderRadius="full" px={2} py={1}>
+                  {messageCount} new messages
+                </Badge>
+              </Box>
+
+              <Box>
+                <Text fontWeight="600" mb={2} color={textColor}>
+                  Notifications
+                </Text>
+                <Badge bg="red.500" color="white" borderRadius="full" px={2} py={1}>
+                  {notificationCount} new notifications
+                </Badge>
+              </Box>
+
+              <MenuDivider />
+
+              <MenuItem icon={<ViewIcon />}>View Profile</MenuItem>
+              <MenuItem icon={<SettingsIcon />}>Settings</MenuItem>
+              <MenuItem icon={<LogoutIcon />}>Logout</MenuItem>
+            </VStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </>
   );
 };
 
 export default TopNav;
+                
