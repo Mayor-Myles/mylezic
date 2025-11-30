@@ -28,8 +28,8 @@ const TopNav = () => {
         <IconButton
           icon={<TbScan />}
           variant="ghost"
-          aria-label="Lock"
-          fontSize="20px"
+          aria-label="Scan"
+          fontSize="50px"
           color="gray.700"
         />
         <Button variant="ghost" fontWeight="medium" color="gray.700">
@@ -39,7 +39,7 @@ const TopNav = () => {
           icon={<FiBell />}
           variant="ghost"
           aria-label="Notifications"
-          fontSize="20px"
+          fontSize="50px"
           color="gray.700"
         />
       </Flex>
@@ -83,7 +83,7 @@ const TopNav = () => {
       </HStack>
         <Button
           leftIcon={<Icon as={FiPlus} boxSize={5} />}
-          bg="brown.800"
+          bg="brown"
           color="white"
           width="full"
           justifyContent="center"
