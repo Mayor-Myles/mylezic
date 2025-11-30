@@ -20,7 +20,7 @@ import TopNav from '@/topnav';
 
 export default function DashboardPage() {
   return (
-    <Flex minH="100vh" direction="column" maxW="md">
+    <Flex align="center" justifyContent="center" minH="100vh" direction="column" maxW="md">
    
       <TopNav/>
       <Wallet/>
