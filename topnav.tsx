@@ -15,7 +15,7 @@ export default function TopNav() {
       <Flex align="center" gap={3}>
         <Avatar
           size="md"
-          name="Olaoluwa Abijo"
+          name="Clement Pauljo"
           src="avatar.jpeg"/>
           
         <Box lineHeight="1.2">
