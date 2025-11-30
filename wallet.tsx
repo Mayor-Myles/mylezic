@@ -11,24 +11,23 @@ export default function Wallet() {
       borderRadius="xl"
       p="6"
       color="white"
-      position="relative"
       boxShadow="lg"
     >
       <Flex justify="space-between" align="center" mb="2">
         <Flex align="center" gap="2">
           <Icon as={FiTrendingUp} boxSize={4} />
           <Text fontSize="sm" opacity={0.9}>
-            2.70% Today
+            ₦350
           </Text>
         </Flex>
 
         <Text fontSize="sm" opacity={0.9} cursor="pointer">
-          View all →
+          Commission
         </Text>
       </Flex>
 
       <Text fontSize="2xl" fontWeight="bold">
-        $1,6795.25
+        ₦1,6795.25
       </Text>
 
       <Button
