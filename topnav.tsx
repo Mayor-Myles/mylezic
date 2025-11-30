@@ -1,61 +1,71 @@
 'use client';
 
 import {
-  Box,
-  Flex,
+  Grid,
+  GridItem,
   IconButton,
+  Flex,
   Text,
-  useBreakpointValue,
   Badge,
+  useBreakpointValue,
 } from '@chakra-ui/react';
-import { FiBell, FiGift, FiCamera } from 'react-icons/fi';
+import { FiCamera, FiGift, FiBell } from 'react-icons/fi';
 
 export default function TopNav() {
-  const isMobile = useBreakpointValue({ base: true, md: false });
+  const iconSize = useBreakpointValue({ base: 'md', md: 'lg' });
 
   return (
-    <Flex
-      as="nav"
-      align="center"
-      justify="space-between"
+    <Grid
+      templateColumns="repeat(4, 1fr)"
+      alignItems="center"
+      bg="brown.50"
       px={4}
       py={2}
-      bg="white"
       boxShadow="sm"
       borderRadius="md"
       w="100%"
     >
       {/* Left: QR Scanner */}
-      <IconButton
-        aria-label="Scan QR"
-        icon={<FiCamera />}
-        variant="ghost"
-        size={isMobile ? 'md' : 'lg'}
-      />
+      <GridItem>
+        <IconButton
+          aria-label="Scan QR"
+          icon={<FiCamera />}
+          variant="ghost"
+          size={iconSize}
+          color="brown.700"
+        />
+      </GridItem>
+
+      <GridItem>
+      </GridItem>
 
       {/* Center: Reward Button */}
-      <Flex
-        align="center"
-        bg="green.500"
-        color="white"
-        px={4}
-        py={2}
-        borderRadius="full"
-        gap={2}
-        cursor="pointer"
-        _hover={{ bg: 'green.600' }}
-      >
-        <FiGift />
-        <Text fontWeight="medium">Reward</Text>
-      </Flex>
+      <GridItem>
+        <Flex
+          justify="center"
+          align="center"
+          bg="brown.500"
+          color="white"
+          px={4}
+          py={2}
+          borderRadius="full"
+          gap={2}
+          cursor="pointer"
+          _hover={{ bg: 'brown.600' }}
+        >
+          <FiGift />
+          <Text fontWeight="medium">Reward</Text>
+        </Flex>
+      </GridItem>
 
       {/* Right: Notification Bell */}
-      <Box position="relative">
+      <GridItem justifySelf="end" position="relative">
         <IconButton
           aria-label="Notifications"
           icon={<FiBell />}
           variant="ghost"
-          size={isMobile ? 'md' : 'lg'}
+          size={iconSize}
+          color="brown.700"
         />
         <Badge
           position="absolute"
@@ -65,7 +75,7 @@ export default function TopNav() {
           borderRadius="full"
           boxSize="10px"
         />
-      </Box>
-    </Flex>
+      </GridItem>
+    </Grid>
   );
 }
