@@ -16,8 +16,7 @@ export default function TopNav() {
         <Avatar
           size="md"
           name="Olaoluwa Abijo"
-          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fblack-man-avatar&psig=AOvVaw136Ni6S5nFOARzZo8JoWnS&ust=1764587845340000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPCUlZHgmZEDFQAAAAAdAAAAABAE"   // replace with actual image if needed
-        />
+          src="https://www.freepik.com/free-ai-image/portrait-man-cartoon-style_137497745.htm#fromView=keyword&page=1&position=1&uuid=97f99a3e-4233-444b-96b2-0b72f4ef48ac&query=Black+man+avatar"  />
 
         <Box lineHeight="1.2">
           <Text fontSize="sm" color="gray.500">
