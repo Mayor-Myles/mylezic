@@ -16,7 +16,7 @@ export default function TopNav() {
         <Avatar
           size="md"
           name="Olaoluwa Abijo"
-          src="avatar.png"/>
+          src="avatar.jpeg"/>
           
         <Box lineHeight="1.2">
           <Text fontSize="sm" color="gray.500">
