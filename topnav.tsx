@@ -21,16 +21,15 @@ import {
   DrawerContent,
   DrawerCloseButton,
   VStack,
-  Spacer,
 } from '@chakra-ui/react';
 import {
-  BellIcon,
-  ChatIcon,
-  SettingsIcon,
-  LogoutIcon,
-  ViewIcon,
-  HamburgerIcon,
-} from '@chakra-ui/icons';
+  FiMessageSquare,
+  FiBell,
+  FiSettings,
+  FiLogOut,
+  FiEye,
+  FiMenu,
+} from 'react-icons/fi';
 
 const TopNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -82,7 +81,7 @@ const TopNav = () => {
             <Menu>
               <MenuButton
                 as={IconButton}
-                icon={<ChatIcon boxSize={5} />}
+                icon={<FiMessageSquare size={20} />}
                 variant="ghost"
                 color={textColor}
                 position="relative"
@@ -101,15 +100,16 @@ const TopNav = () => {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
+                pointerEvents="none"
               >
                 {messageCount}
               </Badge>
               <MenuList>
-                <MenuItem icon={<ChatIcon />}>New message from Sarah</MenuItem>
-                <MenuItem icon={<ChatIcon />}>Team chat update</MenuItem>
-                <MenuItem icon={<ChatIcon />}>Project discussion</MenuItem>
+                <MenuItem icon={<FiMessageSquare size={16} />}>New message from Sarah</MenuItem>
+                <MenuItem icon={<FiMessageSquare size={16} />}>Team chat update</MenuItem>
+                <MenuItem icon={<FiMessageSquare size={16} />}>Project discussion</MenuItem>
                 <MenuDivider />
-                <MenuItem icon={<ViewIcon />}>View all messages</MenuItem>
+                <MenuItem icon={<FiEye size={16} />}>View all messages</MenuItem>
               </MenuList>
             </Menu>
 
@@ -117,7 +117,7 @@ const TopNav = () => {
             <Menu>
               <MenuButton
                 as={IconButton}
-                icon={<BellIcon boxSize={5} />}
+                icon={<FiBell size={20} />}
                 variant="ghost"
                 color={textColor}
                 position="relative"
@@ -136,6 +136,7 @@ const TopNav = () => {
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
+                pointerEvents="none"
               >
                 {notificationCount}
               </Badge>
@@ -145,7 +146,7 @@ const TopNav = () => {
                 <MenuItem>Comment on your photo</MenuItem>
                 <MenuItem>Profile view notification</MenuItem>
                 <MenuDivider />
-                <MenuItem icon={<ViewIcon />}>View all notifications</MenuItem>
+                <MenuItem icon={<FiEye size={16} />}>View all notifications</MenuItem>
               </MenuList>
             </Menu>
 
@@ -158,17 +159,17 @@ const TopNav = () => {
                 aria-label="Profile menu"
               />
               <MenuList>
-                <MenuItem icon={<ViewIcon />}>View Profile</MenuItem>
-                <MenuItem icon={<SettingsIcon />}>Settings</MenuItem>
+                <MenuItem icon={<FiEye size={16} />}>View Profile</MenuItem>
+                <MenuItem icon={<FiSettings size={16} />}>Settings</MenuItem>
                 <MenuDivider />
-                <MenuItem icon={<LogoutIcon />}>Logout</MenuItem>
+                <MenuItem icon={<FiLogOut size={16} />}>Logout</MenuItem>
               </MenuList>
             </Menu>
 
             {/* Mobile Menu Button */}
             <IconButton
               display={{ base: 'flex', md: 'none' }}
-              icon={<HamburgerIcon />}
+              icon={<FiMenu size={20} />}
               variant="ghost"
               onClick={onOpen}
               aria-label="Open menu"
@@ -215,9 +216,9 @@ const TopNav = () => {
 
               <MenuDivider />
 
-              <MenuItem icon={<ViewIcon />}>View Profile</MenuItem>
-              <MenuItem icon={<SettingsIcon />}>Settings</MenuItem>
-              <MenuItem icon={<LogoutIcon />}>Logout</MenuItem>
+              <MenuItem icon={<FiEye size={16} />}>View Profile</MenuItem>
+              <MenuItem icon={<FiSettings size={16} />}>Settings</MenuItem>
+              <MenuItem icon={<FiLogOut size={16} />}>Logout</MenuItem>
             </VStack>
           </DrawerBody>
         </DrawerContent>
@@ -227,4 +228,3 @@ const TopNav = () => {
 };
 
 export default TopNav;
-                
