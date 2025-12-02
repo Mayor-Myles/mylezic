@@ -10,6 +10,8 @@ export default function TopNav() {
       px={4}
       py={2}
       bg="white"
+      position="fixed"
+      top="0"
     >
       {/* Left Section */}
       <Flex align="center" gap={3}>
