@@ -4,10 +4,10 @@ import { FiTrendingUp, FiPlus } from "react-icons/fi";
 
 export default function Wallet() {
   return (
-    <Flex
-      direction="column"
+    <Box
+      
       m={6}
-      maxW="360px"
+      
       bgGradient="linear(to-r, purple.500, purple.600)"
       borderRadius="xl"
       p="6"
@@ -44,6 +44,6 @@ export default function Wallet() {
       >
         <Icon as={FiPlus} boxSize={6} color="purple.600" />
       </Button>
-    </Flex>
+    </Box>
   );
 }
