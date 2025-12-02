@@ -12,7 +12,7 @@ export default function Wallet() {
       borderRadius="xl"
       p="6"
       color="white"
-      w="100%"
+      
       boxShadow="lg"
       mt="3em"
     >
