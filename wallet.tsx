@@ -4,6 +4,12 @@ import { FiTrendingUp, FiPlus } from "react-icons/fi";
 
 export default function Wallet() {
   return (
+
+    <Flex
+  justify="center"
+  mt={{ base: 4, md: 10 }}   // small margin on mobile, bigger on desktop
+  px={{ base: 4, md: 0 }}    // small side-padding on mobile
+>
     <Box
       w="100%"
       maxW={{ base: "100%", md: "360px" }}   // full width on mobile, 360px on desktop
@@ -45,5 +51,6 @@ export default function Wallet() {
         <Icon as={FiPlus} boxSize={6} color="purple.600" />
       </Button>
     </Box>
+    </Flex>
   );
 }
