@@ -10,7 +10,7 @@ export default function TopNav() {
       px={4}
       py={2}
       bg="white"
-      position="fixed"
+      position="sticky"
       top="0"
     >
       {/* Left Section */}
