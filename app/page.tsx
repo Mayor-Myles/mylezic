@@ -28,7 +28,7 @@ export default function DashboardPage() {
         w="100%"
         justify="center"
         align="flex-start"
-        mt="100px"         // pushes below TopNav
+        mt="4"         // pushes below TopNav
         px={{ base: 4, md: 0 }}
       >
       <Wallet/>
