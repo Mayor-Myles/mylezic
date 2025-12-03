@@ -12,8 +12,8 @@ export default function Wallet() {
       p="6"
       color="white"
       boxShadow="lg"
-      mt="5em"
-      mx={[8,"3em"]}
+      mt="6em"
+      m{4}
     >
       <Flex justify="space-between" align="center" mb="2">
         <Flex align="center" gap="2">
