@@ -18,11 +18,11 @@ export default function Menu() {
     { label: "Bulk SMS", icon: FiMessageSquare },
     { label: "Transfer", icon: FiSend },
     { label: "Settings", icon: FiSettings },
-    { label: "More", icon: FiGrid },
+    
   ];
 
   return (
-    <Box p={4} m={5} maxW="400px">
+    <Box p={4} m={5} maxW="768px">
       <Text fontWeight="bold" mb={4} fontSize="lg">
         Quick Actions
       </Text>
