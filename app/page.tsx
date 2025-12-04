@@ -32,10 +32,10 @@ export default function DashboardPage() {
         px={{ base: 4, md: 0 }}
       >
       <Wallet/>
-    
+    <Menu/>
     </Flex>
 
-      <Menu/>
+      
 
     </>
   );
