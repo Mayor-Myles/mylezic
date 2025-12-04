@@ -46,7 +46,7 @@ export default function Activity() {
   ];
 
   return (
-    <Box py={4}>
+    <Box m={5} py={4}>
       <Flex justify="space-between" px={2} mb={2}>
         <Text fontWeight="bold" fontSize="lg">
           Activities
