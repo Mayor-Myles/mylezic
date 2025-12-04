@@ -22,7 +22,7 @@ export default function Menu() {
   ];
 
   return (
-    <Box p={4}>
+    <Box p={4} m={5}>
       <Text fontWeight="bold" mb={4} fontSize="lg">
         Quick Actions
       </Text>
