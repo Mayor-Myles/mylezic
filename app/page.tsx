@@ -14,7 +14,7 @@ import {
 import { FaHome, FaMoneyBill, FaHistory, FaUser } from 'react-icons/fa';
 import TopNav from '@/topnav';
  import Wallet from '@/wallet';
-import Menu from '@Menu';
+import Menu from '@menu';
 
 
 
@@ -34,6 +34,8 @@ export default function DashboardPage() {
       <Wallet/>
     
     </Flex>
+
+      <Menu/>
 
     </>
   );
