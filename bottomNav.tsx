@@ -1,0 +1,67 @@
+import { Box, Flex, IconButton } from "@chakra-ui/react";
+import {
+  FiHome,
+  FiClock,
+  FiPlus,
+  FiCreditCard,
+  FiUser
+} from "react-icons/fi";
+
+export default function BottomNav() {
+  return (
+    <Box
+      position="fixed"
+      bottom="0"
+      left="0"
+      width="100%"
+      bg="white"
+      borderTop="1px solid #e5e5e5"
+      zIndex="1000"
+      py={2}
+    >
+      <Flex justify="space-around" align="center">
+        {/* Home */}
+        <IconButton
+          icon={<FiHome size={22} />}
+          variant="ghost"
+          aria-label="Home"
+        />
+
+        {/* Activity */}
+        <IconButton
+          icon={<FiClock size={22} />}
+          variant="ghost"
+          aria-label="Activity"
+        />
+
+        {/* Middle Circle Button */}
+        <Flex
+          bgGradient="linear(to-tr, pink.400, pink.500)"
+          w="55px"
+          h="55px"
+          borderRadius="full"
+          justify="center"
+          align="center"
+          boxShadow="lg"
+          mt="-35px"
+        >
+          <FiPlus color="white" size={26} />
+        </Flex>
+
+        {/* Wallet */}
+        <IconButton
+          icon={<FiCreditCard size={22} />}
+          variant="ghost"
+          aria-label="Wallet"
+        />
+
+        {/* Profile */}
+        <IconButton
+          icon={<FiUser size={22} />}
+          variant="ghost"
+          aria-label="Profile"
+        />
+      </Flex>
+    </Box>
+  );
+}
