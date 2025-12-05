@@ -17,7 +17,7 @@ import TopNav from '@/topnav';
 import Menu from '@/menu';
 import Activity from '@/activities';
 import Advert from '@/adverts';
-import BottomNav from "@/bottomNav';
+import BottomNav from "@/bottomNav";
 
 
 export default function DashboardPage() {
