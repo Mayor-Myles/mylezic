@@ -1,5 +1,8 @@
 import { Box, Flex, Avatar, Text, IconButton, Badge } from "@chakra-ui/react";
 import { HiOutlineChatBubbleOvalLeft, HiOutlineBell } from "react-icons/hi2";
+import Sidebar from "@/sidebar";
+
+
 
 export default function TopNav() {
   return (
@@ -29,28 +32,7 @@ export default function TopNav() {
           <Text fontWeight="bold">Clement Adekunle</Text>
         </Box>
       </Flex>
-
-      {/* Icons Section */}
-      <Flex align="center" gap={3}>
-        {/* Chat Icon */}
-        <Box position="relative">
-          <IconButton
-            aria-label="messages"
-            icon={<HiOutlineChatBubbleOvalLeft size={22} />}
-            variant=""
-            size="lg"
-          />
-          <Badge
-            position="absolute"
-            top="3px"
-            right="2px"
-            bg="red.500"
-            borderRadius="full"
-            boxSize="8px"
-            p="0"
-          />
-        </Box>
-
+      
         {/* Bell Icon */}
         <Box position="relative">
           <IconButton
@@ -65,10 +47,13 @@ export default function TopNav() {
             right="2px"
             bg="red.500"
             borderRadius="full"
-            boxSize="10px"
+            boxSize="8px"
             p="2"
           />
         </Box>
+
+      {/* Drawer */}
+      <Sidebar />
       </Flex>
     </Flex>
   );
