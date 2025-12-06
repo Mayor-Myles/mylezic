@@ -46,7 +46,7 @@ const menuItems = [
 export default function Sidebar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const breakpoint = useBreakpoint();
-
+alert(breakpoint);
   
   return (
     <>
