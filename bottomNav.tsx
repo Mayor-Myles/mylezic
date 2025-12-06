@@ -36,7 +36,7 @@ export default function BottomNav() {
 
         {/* Middle Circle Button */}
         <Flex
-          bgGradient="linear(to-tr, blue.400, blue.500)"
+          bgGradient="linear(to-tr, purple.500, purple.600)"
           w="55px"
           h="55px"
           borderRadius="full"
