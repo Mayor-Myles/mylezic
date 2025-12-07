@@ -56,7 +56,7 @@ useEffect(()=>{
 })
   
   return (
-    <>
+    <Box display={breakpoint && "none">
       {/* Button to open drawer */}
       <Button
         leftIcon={<FiMenu />}
@@ -68,11 +68,11 @@ useEffect(()=>{
       </Button>
 
       {/* Drawer Sidebar */}
-      <Drawer placement="left" onClose={onClose} isOpen={true}>
+      <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
 
         <DrawerContent
-          bg="linear-gradient(180deg, #7B2FF7 0%, purple.500 50%, purple.600 100%)"
+          bg="linear-gradient(180deg, #7B2FF7 0%,darkviolet 50%, darkviolet 100%)"
           color="white"
         >
           <DrawerCloseButton color="white" />
@@ -142,6 +142,6 @@ useEffect(()=>{
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </>
+    </Box>
   );
 }
