@@ -1,10 +1,13 @@
-import { Box, Flex, Avatar, Text, IconButton, Badge } from "@chakra-ui/react";
+import { Box, Flex, Avatar, Text, IconButton, Badge, useDisclosure } from "@chakra-ui/react";
 import { HiOutlineChatBubbleOvalLeft, HiOutlineBell } from "react-icons/hi2";
 import Sidebar from "@/sidebar";
-
+import {FiMenu} from "react-icons/fi";
 
 
 export default function TopNav() {
+
+  const {isOpen, onOpen, isClose} = useDisclosure();
+  
   return (
     <Flex
       align="center"
@@ -53,7 +56,14 @@ export default function TopNav() {
         </Box>
 
       {/* Drawer */}
-      <Sidebar />
+      <Button
+        leftIcon={<FiMenu />}
+        onClick={onOpen}
+        variant="ghost"
+        color="purple.600"
+      >
+      
+      </Button>
       
     </Flex>
   );
