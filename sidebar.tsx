@@ -61,9 +61,9 @@ const Sidebar = () => {
           onClick={onToggle}
           position="fixed"
           top="4"
-          left="4"
+          right="4"
           zIndex="modal"
-          bgGradient="linear(to-r, purple.500, purple.600)"
+          bgGradient="linear(to-r, purple.300, purple.400)"
           color="white"
           _hover={{ bgGradient: 'linear(to-r, purple.600, purple.700)' }}
           size="md"
