@@ -24,7 +24,7 @@ import Sidebar from "@/sidebar";
 
 export default function DashboardPage() {
   return (
-    <Flex>
+    <Flex direction="column">
       
       <TopNav/>
 
