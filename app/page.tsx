@@ -27,9 +27,9 @@ export default function DashboardPage() {
   
   return (
     
-    <HStack>
+    
       
-    <Box>
+    
       
       <TopNav/>
 
@@ -51,13 +51,10 @@ export default function DashboardPage() {
       <Menu/>
       <Activity/>
       <BottomNav/>
-    </Box>
+    
 
-      <Box>
-      <Sidebar/>
-      </Box>
       
-
-    </HStack>
+      <Sidebar/>
+      
   );
 }
