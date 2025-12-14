@@ -24,7 +24,7 @@ import Sidebar from "@/sidebar";
 
 export default function DashboardPage() {
   return (
-    <>
+    <Flex>
       
       <TopNav/>
 
@@ -48,6 +48,6 @@ export default function DashboardPage() {
       <BottomNav/>
       
 
-    </>
+    </Flex>
   );
 }
