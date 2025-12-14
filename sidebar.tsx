@@ -73,7 +73,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <Box
-        position={isMobile ? 'fixed' : 'fixed'}
+        position={'fixed'}
         left="0"
         top="0"
         h="100vh"
