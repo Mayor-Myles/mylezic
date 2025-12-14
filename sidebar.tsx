@@ -82,7 +82,7 @@ const Sidebar = () => {
         color="white"
         boxShadow="xl"
         transition="all 0.3s ease"
-        zIndex="docked"
+        zIndex="9999"
         overflowY="auto"
         overflowX="hidden"
       >
