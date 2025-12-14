@@ -38,7 +38,9 @@ export default function Adverts() {
 
   return (
 
-    <Flex justifyContent="center">
+    <Flex justifyContent="center"
+    mx="4em"
+      >
       
     <SimpleGrid 
       columns={isMobile ? 1: 3} 
