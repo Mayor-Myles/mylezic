@@ -27,7 +27,7 @@ export default function DashboardPage() {
   
   return (
    
-    <Flex direction="column" justifyContent="center">
+    <>
       
       <TopNav/>
 
@@ -43,16 +43,12 @@ export default function DashboardPage() {
     
     </Flex>
       
-<Advert />
-
+      <Advert />
       
       <Menu/>
       <Activity/>
       <BottomNav/>
-    
-
-      
       <Sidebar/>
-    </Flex>
+    </>
   );
 }
