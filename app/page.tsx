@@ -23,8 +23,13 @@ import Sidebar from "@/sidebar";
 
 
 export default function DashboardPage() {
+  
+  
   return (
-    <Flex>
+    
+    <HStack>
+      
+    <Box>
       
       <TopNav/>
 
@@ -42,10 +47,15 @@ export default function DashboardPage() {
       
 <Advert />
 
-      <Sidebar />
+      
       <Menu/>
       <Activity/>
       <BottomNav/>
+    </Box>
+
+      <Box>
+      <Sidebar/>
+      </Box>
       
 
     </>
