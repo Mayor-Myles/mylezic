@@ -39,7 +39,7 @@ export default function Adverts() {
   return (
 
     <Flex justifyContent="center"
-    mx="4em"
+    mx="7em"
       >
       
     <SimpleGrid 
