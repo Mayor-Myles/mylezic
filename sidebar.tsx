@@ -55,7 +55,7 @@ export default function Sidebar() {
       
 
       
-      <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+      <Drawer placement="left" onClose={onClose} isOpen={true}>
         <DrawerOverlay />
 
         <DrawerContent
