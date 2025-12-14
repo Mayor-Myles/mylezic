@@ -39,11 +39,14 @@ export default function DashboardPage() {
       <Wallet/>
     
     </Flex>
+      
 <Advert />
+
+      <Sidebar />
       <Menu/>
       <Activity/>
       <BottomNav/>
-      <Sidebar />
+      
 
     </>
   );
