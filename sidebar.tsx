@@ -1,134 +1,212 @@
-// components/SidebarDrawer.jsx
+
+'use client';
+
+import React, { useState } from 'react';
 import {
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerCloseButton,
-  VStack,
-  Flex,
   Box,
+  VStack,
+  HStack,
   Text,
-  Icon,
-  Divider,
   Avatar,
-  InputGroup,
-  Input,
-  InputLeftElement,
+  Badge,
+  IconButton,
   useDisclosure,
-  Button,
-  useMediaQuery,
-} from "@chakra-ui/react";
+  useBreakpointValue,
+  Flex,
+  Divider,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Stack,
+} from '@chakra-ui/react';
 import {
-  FiMenu,
   FiHome,
-  FiWifi,
+  FiShoppingCart,
   FiSmartphone,
+  FiMessageSquare,
+  FiHelpCircle,
   FiMail,
-  FiMessageCircle,
   FiUser,
+  FiMenu,
   FiSearch,
+  FiChevronLeft,
+} from 'react-icons/fi';
+
+const Sidebar = () => {
+  const { isOpen, onToggle } = useDisclosure();
+  const [activeItem, setActiveItem] = useState('home');
   
-} from "react-icons/fi";
-import Link from "next/link";
-import {useEffect} from "react";
-
-
-
-const menuItems = [
-  { label: "Home", icon: FiHome, href: "/" },
-  { label: "Buy Data", icon: FiWifi, href: "/data" },
-  { label: "Buy Airtime", icon: FiSmartphone, href: "/airtime" },
-  { label: "Bulk SMS", icon: FiMail, href: "/bulk-sms" },
-  { label: "Support", icon: FiMessageCircle, href: "/support" },
-  { label: "Contact Us", icon: FiMessageCircle, href: "/contact" },
-  { label: "Profile", icon: FiUser, href: "/profile" },
-];
-
-export default function Sidebar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  // Responsive sidebar behavior
+  const isMobile = useBreakpointValue({ base: true, md: false });
+  const sidebarWidth = isMobile ? (isOpen ? '250px' : '0') : '280px';
   
-  
+  // Menu items
+  const menuItems = [
+    { id: 'home', label: 'Home', icon: React.createElement(FiHome), isActive: activeItem === 'home' },
+    { id: 'buy-data', label: 'Buy Data', icon: React.createElement(FiShoppingCart), isActive: activeItem === 'buy-data' },
+    { id: 'buy-airtime', label: 'Buy Airtime', icon: React.createElement(FiSmartphone), isActive: activeItem === 'buy-airtime' },
+    { id: 'bulk-sms', label: 'Bulk SMS', icon: React.createElement(FiMessageSquare), count: 3, isActive: activeItem === 'bulk-sms' },
+    { id: 'support', label: 'Support', icon: React.createElement(FiHelpCircle), isActive: activeItem === 'support' },
+    { id: 'contact', label: 'Contact Us', icon: React.createElement(FiMail), isActive: activeItem === 'contact' },
+    { id: 'profile', label: 'Profile', icon: React.createElement(FiUser), isActive: activeItem === 'profile' },
+  ];
+
   return (
-    
-      
-
-      
-      <Drawer placement="left" onClose={onClose} isOpen={true}>
-        <DrawerOverlay />
-
-        <DrawerContent
-          bg="linear-gradient(180deg, #7B2FF7 0%,purple 50%, purple 100%)"
+    <>
+      {/* Mobile Toggle Button */}
+      {isMobile && (
+        <IconButton
+          aria-label="Toggle Sidebar"
+          icon={isOpen ? React.createElement(FiChevronLeft) : React.createElement(FiMenu)}
+          onClick={onToggle}
+          position="fixed"
+          top="4"
+          left="4"
+          zIndex="modal"
+          bgGradient="linear(to-r, purple.500, purple.600)"
           color="white"
-        >
-          <DrawerCloseButton color="white" />
+          _hover={{ bgGradient: 'linear(to-r, purple.600, purple.700)' }}
+          size="md"
+          borderRadius="lg"
+        />
+      )}
 
-          <DrawerHeader borderBottomWidth="0" mt="4">
-            <Text fontSize="xl" fontWeight="bold">
+      {/* Sidebar */}
+      <Box
+        position={isMobile ? 'fixed' : 'relative'}
+        left="0"
+        top="0"
+        h="100vh"
+        w={sidebarWidth}
+        bgGradient="linear(to-r, purple.500, purple.600)"
+        color="white"
+        boxShadow="xl"
+        transition="all 0.3s ease"
+        zIndex="docked"
+        overflowY="auto"
+        overflowX="hidden"
+      >
+        {/* Logo and Search Section */}
+        <VStack spacing={6} p={6} align="stretch">
+          {/* Logo */}
+          <HStack justify="space-between" align="center">
+            <Text fontSize="2xl" fontWeight="bold" letterSpacing="tight">
               Mylezic
             </Text>
-          </DrawerHeader>
-
-          <DrawerBody>
-
-            {/* 🔎 Search */}
-            <InputGroup mb="6">
-              <InputLeftElement>
-                <Icon as={FiSearch} color="whiteAlpha.800" />
-              </InputLeftElement>
-              <Input
-                placeholder="Search..."
-                bg="whiteAlpha.200"
-                border="none"
+            {isMobile && isOpen && (
+              <IconButton
+                aria-label="Close Sidebar"
+                icon={React.createElement(FiChevronLeft)}
+                onClick={onToggle}
+                variant="ghost"
                 color="white"
-                _placeholder={{ color: "whiteAlpha.700" }}
-                _focus={{ bg: "whiteAlpha.300" }}
+                _hover={{ bg: 'purple.600' }}
+                size="sm"
               />
-            </InputGroup>
+            )}
+          </HStack>
 
-            {/* 📌 Menu Items */}
-            <VStack align="stretch" spacing="3" mb="6">
-              {menuItems.map((item) => (
-                <Link href={item.href} key={item.label} passHref legacyBehavior>
-                  <Flex
-                    as="a"
-                    align="center"
-                    p="3"
-                    borderRadius="md"
-                    cursor="pointer"
-                    _hover={{ bg: "whiteAlpha.300" }}
-                  >
-                    <Icon as={item.icon} boxSize={5} mr="3" />
-                    <Text>{item.label}</Text>
-                  </Flex>
-                </Link>
-              ))}
-            </VStack>
+          {/* Search */}
+          <InputGroup>
+            <InputLeftElement pointerEvents="none">
+              <FiSearch color="white" />
+            </InputLeftElement>
+            <Input
+              placeholder="Search..."
+              bg="rgba(255, 255, 255, 0.15)"
+              border="none"
+              color="white"
+              _placeholder={{ color: 'whiteAlpha.700' }}
+              _hover={{ bg: 'rgba(255, 255, 255, 0.2)' }}
+              _focus={{ bg: 'rgba(255, 255, 255, 0.2)', boxShadow: 'outline' }}
+            />
+          </InputGroup>
+        </VStack>
 
-            <Divider borderColor="whiteAlpha.400" mb="5" />
+        <Divider borderColor="whiteAlpha.300" />
 
-            {/* 👤 User Section */}
-            <Flex align="center" mt="auto" gap="3" mb="6">
-              <Avatar name="John Doe" />
-              <Box>
-                <Text fontWeight="semibold">John Doe</Text>
-                <Flex align="center" gap="2">
-                  <Box
-                    w="10px"
-                    h="10px"
-                    bg="green.300"
-                    borderRadius="full"
-                    boxShadow="0 0 6px green"
-                  />
-                  <Text fontSize="sm">Online</Text>
-                </Flex>
+        {/* Menu Items */}
+        <Stack spacing={1} p={4}>
+          {menuItems.map((item) => (
+            <Flex
+              key={item.id}
+              align="center"
+              p={3}
+              borderRadius="lg"
+              cursor="pointer"
+              bg={item.isActive ? 'whiteAlpha.200' : 'transparent'}
+              _hover={{ bg: 'whiteAlpha.200' }}
+              onClick={() => setActiveItem(item.id)}
+              transition="all 0.2s"
+            >
+              <Box fontSize="lg" mr={3}>
+                {item.icon}
               </Box>
+              <Text fontWeight="medium" flex={1}>
+                {item.label}
+              </Text>
+              {item.count && (
+                <Badge
+                  colorScheme="whiteAlpha"
+                  bg="whiteAlpha.300"
+                  color="white"
+                  borderRadius="full"
+                  px={2}
+                >
+                  {item.count}
+                </Badge>
+              )}
             </Flex>
+          ))}
+        </Stack>
 
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
-    
+        <Divider borderColor="whiteAlpha.300" my={4} />
+
+        {/* User Profile Section */}
+        <Box p={6}>
+          <HStack spacing={3}>
+            <Avatar
+              size="md"
+              name="John Doe"
+              src="https://bit.ly/dan-abramov"
+              border="2px solid white"
+            />
+            <Box>
+              <Text fontWeight="bold" fontSize="sm">
+                John Doe
+              </Text>
+              <HStack spacing={1} align="center">
+                <Box
+                  w="8px"
+                  h="8px"
+                  borderRadius="full"
+                  bg="green.300"
+                  boxShadow="0 0 8px rgba(72, 187, 120, 0.6)"
+                />
+                <Text fontSize="xs" color="whiteAlpha.800">
+                  Online
+                </Text>
+              </HStack>
+            </Box>
+          </HStack>
+        </Box>
+      </Box>
+
+      {/* Overlay for mobile */}
+      {isMobile && isOpen && (
+        <Box
+          position="fixed"
+          top="0"
+          left="0"
+          right="0"
+          bottom="0"
+          bg="blackAlpha.600"
+          zIndex="overlay"
+          onClick={onToggle}
+        />
+      )}
+    </>
   );
-}
+};
+
+export default Sidebar;
