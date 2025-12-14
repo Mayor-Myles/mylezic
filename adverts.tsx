@@ -1,8 +1,12 @@
-import { Box, Flex, Text, Icon } from "@chakra-ui/react";
+import { useBreakpointValue,Box, Flex, Text, Icon } from "@chakra-ui/react";
 import { BsAward } from "react-icons/bs";
 import { FiChevronRight } from "react-icons/fi";
 
+
+
 export default function Advert() {
+  
+  const isMobile = useBreakpointValue({});
   return (
     <Flex
       bg="#EFE6FF"                // light purple background
