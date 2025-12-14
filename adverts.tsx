@@ -38,11 +38,12 @@ export default function Adverts() {
 
   return (
     <SimpleGrid 
-      columns={isMobile ? 1 : 3} 
+      columns={3} 
       spacing={4} 
       p={4}
       maxW={isMobile ? "100%" : "1200px"}
-      mx="auto"
+      mx={isMobile ? "2em" : "6em"}
+      overflowX="scroll"
     >
       {advertData.map((advert) => (
         <Flex
