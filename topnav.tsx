@@ -56,15 +56,7 @@ export default function TopNav() {
         </Box>
 
       
-      {/* Drawer */}
-      <Button
-        leftIcon={<FiMenu />}
-        onClick={onOpen}
-        variant="ghost"
-        color="purple.600"
-      >
-      
-      </Button>
+    
       
     </Flex>
   );
